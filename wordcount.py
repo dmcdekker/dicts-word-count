@@ -68,3 +68,29 @@ def sort_output_desc_asc(word_counts):
         print "{} {}".format(value, key)
 
 
+def sorted_by_count_and_word(word_counts):
+    """Sort word counts by count, then word. Returns list of (word, count)."""
+
+    return sorted(word_counts.items(), key=reversed_tuple)
+
+
+def reversed_and_negated_tuple(word_and_count):
+    """Given tuple of (word, count), return (-count, word)."""
+
+    return (-word_and_count[1], word_and_count[0])   
+
+
+def sorted_by_count_desc_and_word(word_counts):
+    """Sort word counts by count, then word. Returns list of (word, count)."""
+
+    return sorted(word_counts.items(), key=reversed_and_negated_tuple)
+
+
+def print_words(sorted_list):
+    """Print words: count from a list of tuples"""
+
+    for word, count in sorted_list:
+        print word + " " + str(count)     
+
+
+
